@@ -20,3 +20,30 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Professional page styling */
+.section-header {
+    margin-bottom: 20px;
+    color: #333; /* Choose a color that fits your site's theme */
+    font-weight: bold;
+}
+
+.content-section {
+    margin-bottom: 40px;
+}
+
+.professional-link {
+    color: #007bff; /* Bootstrap primary color, or choose your own */
+    text-decoration: none;
+}
+
+    .professional-link:hover {
+        text-decoration: underline;
+    }
+
+.professional-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /* Soften the edges */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Add a subtle shadow */
+}
