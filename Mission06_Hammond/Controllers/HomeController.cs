@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Mission06_Hammond.Models;
 using System.Diagnostics;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Mission06_Hammond.Controllers
 {
@@ -8,7 +9,7 @@ namespace Mission06_Hammond.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger) //This is a constructor. It is taking in an HomeController type object and setting it as _logger which is open for everyone to use
         {
             _logger = logger;
         }
@@ -18,15 +19,33 @@ namespace Mission06_Hammond.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult JoelInfo()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult MovieForm() 
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
         }
+
+        [HttpGet]
+        public IActionResult DatingApplication()
+        {
+            return View();
+        }
+        
+        //[HttpPost]
+        //public IActionResult DatingApplication(Application response)
+        //{
+        //    _context.Applications.Add(response); //Add record to the database
+        //    _context.SaveChanges();
+
+
+
+        //    return View("Confirmation", response);
+        //}
+
     }
 }
+        
