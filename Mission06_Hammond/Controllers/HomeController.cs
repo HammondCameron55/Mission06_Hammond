@@ -7,11 +7,11 @@ namespace Mission06_Hammond.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private MovieDatabaseContext _context;
 
-        public HomeController(ILogger<HomeController> logger) //This is a constructor. It is taking in an HomeController type object and setting it as _logger which is open for everyone to use
+        public HomeController(MovieDatabaseContext temp) //This is a constructor. It is taking in an HomeController type object and setting it as _logger which is open for everyone to use
         {
-            _logger = logger;
+            _context = temp;
         }
 
         public IActionResult Index()
@@ -35,8 +35,8 @@ namespace Mission06_Hammond.Controllers
         [HttpPost]
         public IActionResult MovieForm(MovieSubmit response)
         {
-            //_context.Applications.Add(response); //Add record to the database
-            //_context.SaveChanges();
+            _context.movieSubmits.Add(response); //Add record to the database
+            _context.SaveChanges();
 
 
 
@@ -45,4 +45,4 @@ namespace Mission06_Hammond.Controllers
 
     }
 }
-        //Consider a Confirmation Page
+        

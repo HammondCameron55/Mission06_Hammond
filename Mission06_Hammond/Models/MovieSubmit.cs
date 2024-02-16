@@ -4,6 +4,8 @@ namespace Mission06_Hammond.Models
 {
     public class MovieSubmit
     {
+        [Key]
+        [Required]
         public int Id { get; set; }
 
         [Required]
@@ -21,11 +23,11 @@ namespace Mission06_Hammond.Models
         [Required]
         public string Rating { get; set; }
 
-        public bool Edited { get; set; } 
+        public bool? Edited { get; set; } 
 
-        public string Lent { get; set; }
+        public string? Lent { get; set; }
 
         [MaxLength(25)]
-        public string Notes { get; set; }
+        public string? Notes { get; set; }
     }
 }
