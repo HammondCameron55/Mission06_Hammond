@@ -24,28 +24,25 @@ namespace Mission06_Hammond.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult MovieForm() 
         {
             return View();
         }
 
-        [HttpGet]
-        public IActionResult DatingApplication()
-        {
-            return View();
-        }
         
-        //[HttpPost]
-        //public IActionResult DatingApplication(Application response)
-        //{
-        //    _context.Applications.Add(response); //Add record to the database
-        //    _context.SaveChanges();
+
+        [HttpPost]
+        public IActionResult MovieForm(MovieSubmit response)
+        {
+            //_context.Applications.Add(response); //Add record to the database
+            //_context.SaveChanges();
 
 
 
-        //    return View("Confirmation", response);
-        //}
+            return View("Confirmation", response);
+        }
 
     }
 }
-        
+        //Consider a Confirmation Page

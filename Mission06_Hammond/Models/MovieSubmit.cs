@@ -21,7 +21,7 @@ namespace Mission06_Hammond.Models
         [Required]
         public string Rating { get; set; }
 
-        public bool Edited { get; set; } // Consider changing to bool if appropriate
+        public bool Edited { get; set; } 
 
         public string Lent { get; set; }
 
