@@ -2,11 +2,11 @@
 
 namespace Mission06_Hammond.Models
 {
-    public class MovieSubmit
+    public class Movie
     {
         [Key]
         [Required]
-        public int MovieID { get; set; }
+        public int MovieId { get; set; }
 
         [Required(ErrorMessage="Sorry you must enter a First Name")]
         public string Title { get; set; }

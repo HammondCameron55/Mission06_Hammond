@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Mission06_Hammond.Models;
+using System;
 using System.Diagnostics;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -34,17 +36,17 @@ namespace Mission06_Hammond.Controllers
             ViewBag.Major = _context.Categories
                 .OrderBy(x => x.CategoryName).ToList();
 
-            return View("MovieForm", new MovieSubmit());
+            return View("MovieForm", new Movie());
         }
 
         
         //This is the method that will be called when the user Submits a new movie form
         [HttpPost]
-        public IActionResult MovieForm(MovieSubmit response)
+        public IActionResult MovieForm(Movie response)
         {
             if (ModelState.IsValid)
             {
-                _context.movieSubmits.Add(response); //Add record to the database
+                _context.Movies.Add(response); //Add record to the database
                 _context.SaveChanges();
                 return View("Confirmation", response);
             }
@@ -61,7 +63,7 @@ namespace Mission06_Hammond.Controllers
         [HttpGet]
         public IActionResult MovieTable()
         {
-            var movieList = _context.movieSubmits;
+            var movieList = _context.Movies;
                //Add an orderby if you want to sort the list
 
             return View(movieList);
@@ -70,11 +72,10 @@ namespace Mission06_Hammond.Controllers
 
         public IActionResult EditMovie(int id)
         {
-            var movie = _context.movieSubmits.Find(id);
+            var movie = _context.Movies.Find(id);
 
             return View("MovieForm" ,movie);
         }
 
     }
 }
-        

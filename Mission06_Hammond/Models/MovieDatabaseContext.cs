@@ -7,7 +7,7 @@ namespace Mission06_Hammond.Models
         public MovieDatabaseContext(DbContextOptions<MovieDatabaseContext> options) : base(options) //Constructor
         {}
 
-        public DbSet<MovieSubmit> movieSubmits { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         
         public DbSet<CategoriesModel> Categories { get; set; }
     }
