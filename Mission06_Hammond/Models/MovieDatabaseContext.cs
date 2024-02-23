@@ -2,12 +2,13 @@
 
 namespace Mission06_Hammond.Models
 {
-    public class MovieDatabaseContext :DbContext
+    public class MovieDatabaseContext :DbContext //Liasison between the database and the application
     {
         public MovieDatabaseContext(DbContextOptions<MovieDatabaseContext> options) : base(options) //Constructor
         {}
 
         public DbSet<MovieSubmit> movieSubmits { get; set; }
         
+        public DbSet<CategoriesModel> Categories { get; set; }
     }
 }

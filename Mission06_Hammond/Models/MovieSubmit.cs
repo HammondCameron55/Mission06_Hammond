@@ -6,26 +6,30 @@ namespace Mission06_Hammond.Models
     {
         [Key]
         [Required]
-        public int Id { get; set; }
+        public int MovieID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage="Sorry you must enter a First Name")]
         public string Title { get; set; }
 
-        [Required]
-        public string Category { get; set; }
+        
+        public string? CategoryId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Sorry you must enter the year the movie came out")]
         public int Year { get; set; }
 
-        [Required]
-        public string Director { get; set; }
+        
+        public string? Director { get; set; }
 
-        [Required]
-        public string Rating { get; set; }
+        
+        public string? Rating { get; set; }
 
-        public bool? Edited { get; set; } 
+        [Required(ErrorMessage ="Sorry, you must mark whether or not the version you watched was edited")]
+        public bool Edited { get; set; } 
 
-        public string? Lent { get; set; }
+        public string? LentTo { get; set; }
+
+        [Required(ErrorMessage = "Sorry, you must mark whether or not the movie has been copied to Plex")]
+        public bool CopiedToPlex { get; set; }
 
         [MaxLength(25)]
         public string? Notes { get; set; }

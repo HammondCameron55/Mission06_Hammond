@@ -14,33 +14,65 @@ namespace Mission06_Hammond.Controllers
             _context = temp;
         }
 
+        //This takes the user to the home page
         public IActionResult Index()
         {
             return View();
         }
 
+        //This method will be called when the user clicks on the JoelInfo link. 
         public IActionResult JoelInfo()
         {
             return View();
         }
+        
 
+        //This is the method that will be called when the user clicks the "MovieForm"
         [HttpGet]
         public IActionResult MovieForm() 
         {
-            return View();
+            ViewBag.Major = _context.Categories
+                .OrderBy(x => x.CategoryName).ToList();
+
+            return View("MovieForm", new MovieSubmit());
         }
 
         
-
+        //This is the method that will be called when the user Submits a new movie form
         [HttpPost]
         public IActionResult MovieForm(MovieSubmit response)
         {
-            _context.movieSubmits.Add(response); //Add record to the database
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.movieSubmits.Add(response); //Add record to the database
+                _context.SaveChanges();
+                return View("Confirmation", response);
+            }
+            else
+            {
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName).ToList();
+                return View("MovieForm", response);
+            }
+            
+        }
+
+        //This is the method that will be called when the user clicks the "MovieTable" 
+        [HttpGet]
+        public IActionResult MovieTable()
+        {
+            var movieList = _context.movieSubmits;
+               //Add an orderby if you want to sort the list
+
+            return View(movieList);
+        }
 
 
+        public IActionResult EditMovie(int id)
+        {
+            var movie = _context.movieSubmits.Find(id);
 
-            return View("Confirmation", response);
+            return View("MovieForm" ,movie);
         }
 
     }

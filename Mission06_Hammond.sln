@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mission06_Hammond", "Mission06_Hammond\Mission06_Hammond.csproj", "{56F452AA-867E-446A-9A35-5294E0FDAA48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mission06_Hammond", "Mission06_Hammond\Mission06_Hammond.csproj", "{56F452AA-867E-446A-9A35-5294E0FDAA48}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DateMe", "..\DateMe\DateMe\DateMe.csproj", "{87C07E13-4CE9-4EAF-BE93-661B2F4331BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{56F452AA-867E-446A-9A35-5294E0FDAA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56F452AA-867E-446A-9A35-5294E0FDAA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56F452AA-867E-446A-9A35-5294E0FDAA48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C07E13-4CE9-4EAF-BE93-661B2F4331BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C07E13-4CE9-4EAF-BE93-661B2F4331BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C07E13-4CE9-4EAF-BE93-661B2F4331BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C07E13-4CE9-4EAF-BE93-661B2F4331BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
