@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Mission06_Hammond.Models;
 using System;
 using System.Diagnostics;
@@ -63,7 +64,9 @@ namespace Mission06_Hammond.Controllers
         [HttpGet]
         public IActionResult MovieTable()
         {
-            var movieList = _context.Movies;
+            var movieList = _context.Movies
+                .Include(m => m.Category) //Include Category data
+                .ToList();
                //Add an orderby if you want to sort the list
 
             return View(movieList);
@@ -97,14 +100,27 @@ namespace Mission06_Hammond.Controllers
                 return View("MovieForm", updatedMovie);
             }
         }
-
-
+        
+        [HttpGet]
         public IActionResult Delete(int id)
         {
             Movie movieToDelete = _context.Movies.Single(x => x.MovieId == id);
-            _context.Movies.Remove(movieToDelete);
-            _context.SaveChanges();
+            if (movieToDelete == null)
+            {
+                return NotFound(); // Or some other error handling
+            }
+            return View("Delete", movieToDelete);
+        }
 
+        [HttpPost]
+        public IActionResult Delete(Movie movie)
+        {
+            var movieToDelete = _context.Movies.Find(movie.MovieId);
+            if (movieToDelete != null)
+            {
+                _context.Movies.Remove(movieToDelete);
+                _context.SaveChanges();
+            }
             return RedirectToAction("MovieTable");
         }
 

@@ -12,8 +12,11 @@ namespace Mission06_Hammond.Models
         [Required(ErrorMessage="Sorry you must enter a First Name")]
         public string Title { get; set; }
 
-        [ForeignKey("CategoriesModel")]
-        public string? CategoryId { get; set; }
+        [ForeignKey("Category")]
+        public int? CategoryId { get; set; }
+
+        //Navigation Property
+        public Category? Category { get; set; } //This is a reference to the Category class Also it is a nullable type
 
         [Required(ErrorMessage = "Sorry you must enter the year the movie came out")]
         [Range(1888, 3000, ErrorMessage = "Sorry, the year must be between 1888 and Now")]
