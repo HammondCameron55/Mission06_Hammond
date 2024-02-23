@@ -33,7 +33,7 @@ namespace Mission06_Hammond.Controllers
         [HttpGet]
         public IActionResult MovieForm() 
         {
-            ViewBag.Major = _context.Categories
+            ViewBag.Categories = _context.Categories
                 .OrderBy(x => x.CategoryName).ToList();
 
             return View("MovieForm", new Movie());
@@ -70,11 +70,42 @@ namespace Mission06_Hammond.Controllers
         }
 
 
-        public IActionResult EditMovie(int id)
+        public IActionResult Edit(int id)
         {
-            var movie = _context.Movies.Find(id);
+            Movie movieToEdit = _context.Movies.Single(x => x.MovieId == id);
 
-            return View("MovieForm" ,movie);
+            ViewBag.Categories = _context.Categories
+                .OrderBy(x => x.CategoryName).ToList();
+
+            return View("MovieForm", movieToEdit);
+        }
+
+        //This is the method taht will save the changes made with the Edit
+        [HttpPost]
+        public IActionResult Edit(Movie updatedMovie)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Update(updatedMovie);
+                _context.SaveChanges();
+                return RedirectToAction("MovieTable");
+            }
+            else
+            {
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName).ToList();
+                return View("MovieForm", updatedMovie);
+            }
+        }
+
+
+        public IActionResult Delete(int id)
+        {
+            Movie movieToDelete = _context.Movies.Single(x => x.MovieId == id);
+            _context.Movies.Remove(movieToDelete);
+            _context.SaveChanges();
+
+            return RedirectToAction("MovieTable");
         }
 
     }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations; //If things stop working, delete this line
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema; //If things stop working, delete this line
 
 namespace Mission06_Hammond.Models
 {
@@ -11,10 +12,11 @@ namespace Mission06_Hammond.Models
         [Required(ErrorMessage="Sorry you must enter a First Name")]
         public string Title { get; set; }
 
-        
+        [ForeignKey("CategoriesModel")]
         public string? CategoryId { get; set; }
 
         [Required(ErrorMessage = "Sorry you must enter the year the movie came out")]
+        [Range(1888, 3000, ErrorMessage = "Sorry, the year must be between 1888 and Now")]
         public int Year { get; set; }
 
         

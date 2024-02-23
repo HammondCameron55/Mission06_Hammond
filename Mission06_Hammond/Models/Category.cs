@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mission06_Hammond.Models
 {
-    public class CategoriesModel
+    public class Category
     {
 
         [Key]

@@ -9,6 +9,6 @@ namespace Mission06_Hammond.Models
 
         public DbSet<Movie> Movies { get; set; }
         
-        public DbSet<CategoriesModel> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
