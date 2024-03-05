@@ -1,0 +1,489 @@
+﻿Client-Server Model
+
+The client-server model is a distributed application structure that partitions tasks or workloads 
+between the providers of a resource or service, called servers, and service requesters, called clients.
+Often clients and servers communicate over a computer network on separate hardware, but both client and
+server may reside in the same system. A server host runs one or more server programs, which share their
+resources with clients. A client does not share any of its resources, but requests a server's content 
+or service function. Clients therefore initiate communication sessions with servers, which await 
+incoming requests.
+
+Client: This is the user's device running a web browser or application, making requests to the server. 
+The client initiates communication by sending requests to the server.
+
+Server: This is the machine or software providing services or resources. In the context of ASP.NET, 
+the server runs web applications and sends responses to the client's browser. It processes incoming 
+requests, runs business logic, accesses databases or files if needed, and sends responses back to the 
+client.
+
+Communication: Clients and servers communicate over a network, typically using the HTTP or HTTPS 
+protocols for web applications. The client sends a request to the server, which then processes the 
+request and sends back a response, often in the form of an HTML page, JSON data, or files.
+
+Statelessness: The HTTP protocol, which underpins most client-server communications in web 
+applications, is stateless. This means each request from a client to a server is independent; the 
+server does not inherently keep track of the client's state. However, web applications often implement 
+mechanisms like sessions and cookies to maintain state across multiple requests.
+
+Roles: In the client-server model, the server provides services like data storage, processing, and 
+business logic, which are consumed by the client. This separation allows clients to access the same 
+server services from different devices or locations and enables efficient scaling and management of 
+resources on the server side.
+
+
+URLs:
+Uniform Resource Locators (URLs) are used to identify resources on the web. A URL is a string
+
+Portions of the URL:
+1. Protocol: The protocol used to access the resource, such as HTTP, HTTPS, or FTP.
+2. Domain: The domain name or IP address of the server hosting the resource.
+3. Port: The port number to connect to on the server. This is optional and defaults to 80 for HTTP and
+   443 for HTTPS.
+4. Path: The path to the resource on the server, such as a file or directory.
+5. Query: Additional parameters or data to be sent to the server, often used in web applications to 
+   pass information
+6. Fragment: A specific section or anchor within the resource, often used in HTML documents to link to
+   specific sections of a page.
+
+Coding by Convention
+ASP.NET Core uses a convention-based approach to application development, which means that it
+provides default behaviors and configurations based on a set of conventions. This approach reduces
+the amount of configuration and boilerplate code required to build an application, allowing developers
+to focus on writing application-specific code.
+For Example:
+1. Controller Conventions: If you name a class with a "Controller" suffix (e.g., HomeController), 
+ASP.NET MVC treats it as a controller and looks for views corresponding to its action methods in 
+specific locations by convention (e.g., /Views/Home/Index.cshtml for the Index action of 
+HomeController).
+
+2. Model Conventions: By following conventions in defining your model properties, ASP.NET can infer 
+database schema details in Entity Framework Code First, like identifying which property is the primary 
+key or understanding relationships between different models without explicit configuration.
+
+3. Routing Conventions: ASP.NET MVC has a default routing convention where URLs are mapped to controllers
+and actions based on their names and namespaces, enabling a standard URL structure without requiring 
+explicit route definitions for every action.
+
+MVC Pattern
+The Model-View-Controller (MVC) pattern is a software architectural pattern that separates an
+application into three main components: the model, the view, and the controller. This separation
+enables the reusability and maintainability of each component and allows for the development of
+modular and scalable applications.
+Model: The model represents the data and business logic of the application. It encapsulates the
+application's data and provides methods to manipulate and access that data. In ASP.NET MVC, the model
+often corresponds to the application's data model, such as database entities or domain objects.
+
+View: The view is responsible for presenting the application's user interface to the user. It displays
+the data from the model and allows users to interact with the application. In ASP.NET MVC, views are
+typically implemented using HTML, CSS, and Razor syntax to generate dynamic content.
+
+Controller: The controller acts as an intermediary between the model and the view. It receives user
+input, processes requests, and updates the model as necessary. In ASP.NET MVC, controllers handle
+incoming HTTP requests, invoke the appropriate business logic in the model, and select the view to
+render the response.
+
+CSS Files:
+Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a
+document written in a markup language like HTML. CSS is used to style the visual appearance of web
+pages and user interfaces, including colors, fonts, layout, and more.
+
+Middleware:
+Middleware is software that provides common services and capabilities to applications outside of what's
+offered by the operating system. In the context of ASP.NET Core, middleware is a component that
+intercepts and processes HTTP requests and responses. It sits between the server and the application
+and can perform tasks like authentication, logging, routing, and more.
+Middleware in this solution is used to handle requests and responses, perform routing, and serve static
+files, among other tasks.
+MVC Middleware: For applications using the MVC pattern, this middleware handles routing, controllers, 
+and views. It processes requests through the MVC framework, enabling the use of controllers and views
+to generate responses.
+
+Razor Code:
+Razor is a syntax for combining server-side code with HTML to create dynamic web pages. 
+In ASP.NET Core, Razor is used to create views that generate HTML content based on data from the
+model. Razor syntax allows you to embed C# code within HTML markup, making it easy to create dynamic
+and data-driven web pages.
+Razor Commands:
+1. @: The @ symbol is used to denote the start of a Razor code block or expression. For example, 
+   @Model.Title denotes a C# expression that accesses the Title property of the model.
+2. @if, @for, @foreach: Razor provides C# control flow constructs like if statements, for loops, and
+   foreach loops to conditionally render content based on data.
+3. @section: Razor sections are used to define named content blocks within a layout or view. They can be
+   rendered or overridden by child views to customize the layout of a page.
+4. @Html: The @Html helper is used to generate HTML elements and forms based on model data. For example,
+   @Html.TextBoxFor(m => m.Name) generates an input element for the Name property of the model.
+5. @model: The @model directive is used to specify the type of the model that a view expects. It allows
+   the view to access properties and methods of the model using Razor syntax.
+
+Actions:
+In ASP.NET MVC, an action is a method on a controller that handles an incoming HTTP request and
+generates an HTTP response. Actions are responsible for processing user input, invoking business
+logic, and selecting a view to render the response. Actions are typically public methods that return
+an ActionResult or one of its derived types, such as ViewResult or JsonResult.
+
+Constructors:
+In object-oriented programming, a constructor is a special method that is automatically called when an
+instance of a class is created. Constructors are used to initialize the object's state, allocate
+resources, and perform any necessary setup. In C#, a constructor is defined using the class name and
+does not have a return type.
+
+Static Classes:
+A static class in C# is a class that cannot be instantiated and can only contain static members, such as
+methods, properties, and fields. Static classes are commonly used to define utility functions, helper
+methods, or extension methods that do not require an instance of the class to be created.
+
+Non-Static Classes:
+A non-static class in C# is a class that can be instantiated to create objects. Non-static classes can
+contain both static and non-static members, such as methods, properties, and fields. When an instance of
+a non-static class is created, it can have its own state and behavior separate from other instances of
+the same class.
+
+Static Classes vs. Non-Static Classes:
+1. Instantiation: Static classes cannot be instantiated, while non-static classes can be instantiated to
+   create objects.
+2. Members: Static classes can only contain static members, while non-static classes can contain both
+   static and non-static members.
+3. State: Static classes do not have instance-specific state, while non-static classes can have
+   instance-specific state and behavior.
+4. Usage: Static classes are commonly used for utility functions and helper methods, while non-static
+   classes are used to define objects with state and behavior.
+
+Return Statements:
+In C#, the return statement is used to exit a method and return a value to the caller. The return
+statement can be used to return a value from a method that has a return type, such as int, string, or
+custom types. It can also be used to return from a method that does not have a return type, such as a
+void method.
+
+.UseDefaultFiles():
+The UseDefaultFiles method is used to serve default files for a request to a directory. When a request
+is made to a directory, the UseDefaultFiles middleware looks for a default file, such as index.html or
+default.html, and serves it if found. This allows web servers to serve the default file without
+requiring the file name to be explicitly specified in the URL.
+
+.UseStaticFiles():
+The UseStaticFiles method is used to serve static files, such as HTML, CSS, JavaScript, images, and other
+assets, from the specified directory. When a request is made for a static file, the UseStaticFiles
+middleware looks for the file in the specified directory and serves it if found. This allows web servers
+to serve static files without requiring additional configuration for each file.
+
+.UseRouting():
+The UseRouting method is used to enable routing for incoming requests in an ASP.NET Core application. It
+configures the middleware pipeline to use the routing middleware, which processes incoming requests and
+routes them to the appropriate endpoint based on the request URL and HTTP method.
+
+Forms:
+In web development, a form is a user interface element used to collect and submit data to a server. Forms
+are commonly used to capture user input, such as text, selections, and file uploads, and send it to the
+server for processing. In HTML, forms are defined using the <form> element, which contains input fields,
+buttons, and other elements for collecting and submitting data.
+
+Navigation (Routing) in MVC:
+Navigation in ASP.NET MVC refers to the process of moving between different views and pages within an
+application. Navigation is typically achieved through the use of hyperlinks, buttons, and other user
+interface elements that trigger requests to the server and render different views based on the user's
+actions.
+
+Inheritance:
+Inheritance is a fundamental concept in object-oriented programming that allows a class to inherit
+properties and behavior from another class. In C#, a class can inherit from another class using the
+colon (:) syntax, and it can access the members of the base class using the base keyword.
+Example:
+class BaseClass
+{
+	public void BaseMethod()
+	{
+		Console.WriteLine("Base method");
+	}
+}
+
+class DerivedClass : BaseClass
+{
+	public void DerivedMethod()
+	{
+		Console.WriteLine("Derived method");
+	}
+}
+
+In this example, DerivedClass inherits from BaseClass, and it can access the BaseMethod from the base
+class.
+
+Interface vs. Class
+An interface is a reference type in C# that defines a contract for classes to implement. It contains
+method and property signatures but does not provide any implementation. Classes that implement an
+interface must provide concrete implementations for all the members defined in the interface.
+A class, on the other hand, is a reference type that can contain fields, properties, methods, and other
+members. Classes can be instantiated to create objects, and they can inherit from other classes or
+implement interfaces.
+
+Interfaces:
+1. An interface defines a contract for classes to implement, specifying method and property signatures
+   without providing any implementation.
+2. Classes that implement an interface must provide concrete implementations for all the members defined
+   in the interface.
+3. Interfaces are commonly used to define common behavior that can be shared across different classes
+   without requiring them to inherit from a common base class.
+4. An interface can be implemented by any class, regardless
+   of its inheritance hierarchy, allowing for greater flexibility in defining and implementing behavior.
+
+Data Annotations:
+Data annotations are attributes that can be applied to model properties in ASP.NET MVC to specify
+validation rules, display names, and other metadata. Data annotations are used to define the behavior
+and appearance of model properties, and they are commonly used to enforce validation rules and customize
+the display of data in views.
+Example:
+public class Product
+{
+	[Required(ErrorMessage = "Product name is required")]
+	[StringLength(50, ErrorMessage = "Product name cannot exceed 50 characters")]
+	public string Name { get; set; }
+
+	[Range(0, 1000, ErrorMessage = "Price must be between 0 and 1000")]
+	public decimal Price { get; set; }
+}
+
+Tag Helpers:
+Tag helpers are a feature of ASP.NET Core that enable server-side code to participate in creating and
+rendering HTML elements. Tag helpers are used to simplify the process of generating HTML by providing
+an alternative syntax that is more similar to HTML itself. Tag helpers are commonly used to generate
+links, forms, and other HTML elements in ASP.NET Core views.
+Example:
+<a asp-controller="Home" asp-action="Index">Home</a>
+In this example, the asp-controller and asp-action attributes are tag helpers that generate an anchor
+element with the appropriate URL based on the specified controller and action.
+
+C# Arrays:
+An array in C# is a collection of elements of the same type that are stored in contiguous memory
+locations. Arrays are used to store and manipulate multiple values of the same type, and they provide
+efficient access to individual elements based on their index.
+Example:
+int[] numbers = new int[5];
+numbers[0] = 10;
+numbers[1] = 20;
+numbers[2] = 30;
+numbers[3] = 40;
+numbers[4] = 50;
+In this example, numbers is an array of integers with a length of 5, and individual elements can be
+accessed using their index (e.g., numbers[0] returns 10).
+Flexible Arrays:
+In C#, arrays are fixed-size data structures, meaning that their length is determined at the time of
+creation and cannot be changed. However, C# also provides flexible array-like data structures, such as
+lists and collections, that can dynamically grow and shrink in size as needed.
+Example:
+List<int> numbers = new List<int>();
+numbers.Add(10);
+numbers.Add(20);
+numbers.Add(30);
+In this example, numbers is a List of integers, and elements can be added to the list using the Add
+method. The list can grow or shrink in size dynamically as elements are added or removed.
+
+Nullable Values:
+In C#, a nullable value is a value type that can represent either a valid value of its underlying type
+or a null reference. Nullable types are used to represent values that may be missing or unknown, and
+they are commonly used to handle database columns, user input, and other scenarios where a value may be
+null.
+Example:
+int? nullableInt = null;
+if (nullableInt.HasValue)
+{
+	Console.WriteLine(nullableInt.Value);
+}
+else
+{
+	Console.WriteLine("Value is null");
+}
+In this example, nullableInt is a nullable integer that can represent either a valid integer value or a
+null reference. The HasValue property is used to check if the value is valid, and the Value property is
+used to access the underlying value if it exists.
+
+List:
+A List in C# is a generic collection type that represents a dynamic array of elements. Lists can grow
+and shrink in size dynamically, and they provide efficient access to individual elements based on their
+index. Lists are commonly used to store and manipulate collections of data in C#.
+Example:
+List<int> numbers = new List<int>();
+numbers.Add(10);
+numbers.Add(20);
+numbers.Add(30);
+In this example, numbers is a List of integers, and elements can be added to the list using the Add
+method. The list can grow or shrink in size dynamically as elements are added or removed.
+
+ViewBag:
+The ViewBag is a dynamic property in ASP.NET MVC that is used to pass data from a controller to a view.
+It is a dynamic object, meaning that properties can be added to it at runtime, and it is commonly used to
+pass data that is not strongly typed to a view.
+Example:
+public IActionResult Index()
+{
+	ViewBag.Message = "Hello, world!";
+	return View();
+}
+In this example, the ViewBag.Message property is set in the Index action of a controller, and it is
+accessed in the corresponding view to display the message.
+
+NuGet Package Manager:
+NuGet is a package manager for .NET that enables developers to create, share, and consume packages of
+code. NuGet packages are used to distribute libraries, frameworks, tools, and other components that can
+be easily added to .NET projects to provide additional functionality.
+The NuGet Package Manager is a tool that integrates with Visual Studio and provides a user interface for
+managing NuGet packages in .NET projects. It allows developers to search for, install, update, and remove
+NuGet packages from their projects, making it easy to add third-party libraries and components to their
+applications.
+
+"model" in ASP.NET MVC:
+In ASP.NET MVC, the "model" refers to the data and business logic of the application. It represents the
+application's data model, such as database entities or domain objects, and provides methods to manipulate
+and access that data. The model is responsible for managing the application's data and enforcing business
+rules, and it is typically used to pass data between the controller and the view.
+
+"Model" in ASP.NET MVC:
+In ASP.NET MVC, the "Model" refers to the data that is passed from the controller to the view for
+rendering. It is an object that contains the data to be displayed in the view, and it is typically
+populated by the controller before rendering the view. The Model is used to pass data from the
+controller to the view and is accessed in the view to display dynamic content based on the data.
+
+"model" vs "Model" in ASP.NET MVC:
+In ASP.NET MVC, "model" refers to the data and business logic of the application, while "Model" refers to
+the data that is passed from the controller to the view for rendering. The "model" represents the
+application's data model and provides methods to manipulate and access that data, while the "Model" is an
+object that contains the data to be displayed in the view and is accessed in the view to display dynamic
+content based on the data.
+
+Model-First (Code-First) Approach:
+The model-first approach in ASP.NET MVC refers to the process of defining the data model and database
+schema before writing any code. In this approach, the data model is designed and defined using tools
+like Entity Framework Designer or SQL Server Management Studio, and the code is then generated based on
+the model. This approach is commonly used in database-centric applications where the data model is the
+primary focus of the development process.
+
+Database-First Approach:
+The database-first approach in ASP.NET MVC refers to the process of defining the data model and database
+schema based on an existing database. In this approach, the data model is generated from an existing
+database using tools like Entity Framework Designer or SQL Server Management Studio, and the code is
+then written to interact with the generated model. This approach is commonly used in applications that
+need to work with an existing database and want to generate the data model and code based on the
+database schema.
+
+Migrations:
+Migrations in Entity Framework Core are a way to manage changes to the database schema over time. They
+enable developers to make changes to the data model and automatically apply those changes to the
+database, keeping the database schema in sync with the application's data model. Migrations are commonly
+used to create, update, and revert database schema changes in ASP.NET Core applications.
+
+Scaffolding:
+Scaffolding in ASP.NET MVC refers to the process of generating code and files based on a data model or
+database schema. Scaffolding tools, such as the Entity Framework scaffolding tool, can be used to
+automatically generate controllers, views, and other files based on the data model, enabling developers
+to quickly create CRUD (Create, Read, Update, Delete) functionality for their applications.
+
+Entity Framework Core:
+Entity Framework Core is an open-source object-relational mapping (ORM) framework for .NET that enables
+developers to work with databases using .NET objects. It provides a set of APIs for interacting with
+databases, querying data, and performing CRUD operations, and it supports a variety of database
+providers, including SQL Server, MySQL, PostgreSQL, and SQLite. Entity Framework Core is commonly used
+in ASP.NET Core applications to work with databases and data models.
+
+DbSet:
+In Entity Framework Core, a DbSet is a collection of entities of a specific type that represents a table
+in the database. It is used to query, insert, update, and delete entities in the database, and it
+provides a set of methods for interacting with the underlying database table. DbSet is commonly used in
+Entity Framework Core to represent database tables and perform CRUD operations on entities.
+
+DbContext:
+In Entity Framework Core, a DbContext is a class that represents a session with the database and provides
+a set of APIs for interacting with the database. It is responsible for managing the connection to the
+database, tracking changes to entities, and executing database queries. DbContext is commonly used in
+Entity Framework Core to define the data model and interact with the database.
+
+Entity Framework:
+Entity Framework is an object-relational mapping (ORM) framework for .NET that enables developers to work
+with databases using .NET objects. It provides a set of APIs for interacting with databases, querying
+data, and performing CRUD operations, and it supports a variety of database providers, including SQL
+Server, MySQL, PostgreSQL, and SQLite. Entity Framework is commonly used in ASP.NET applications to work
+with databases and data models.
+
+Entity Framework Core vs. Entity Framework:
+Entity Framework Core is the next generation of Entity Framework, and it is a lightweight, extensible,
+and cross-platform version of the Entity Framework framework. It is designed to work with .NET Core and
+ASP.NET Core, and it provides a set of APIs for interacting with databases, querying data, and
+performing CRUD operations. Entity Framework Core is commonly used in modern .NET applications to work
+with databases and data models.
+
+ModelState.IsValid:
+In ASP.NET MVC, the ModelState.IsValid property is used to check if the model state is valid. It is
+commonly used in controller actions to validate user input and ensure that the model state is valid
+before processing the input. If the model state is not valid, the controller can return an error
+message or redirect the user to a different view.
+Example:
+[HttpPost]
+public IActionResult Create(Product product)
+{
+	if (ModelState.IsValid)
+	{
+		// Process valid input
+		return RedirectToAction("Index");
+	}
+	else
+	{
+		// Return error message
+		return View(product);
+	}
+}
+In this example, the ModelState.IsValid property is used to check if the model state is valid before
+processing the input. If the model state is valid, the controller processes the input and redirects the
+user to the Index view. If the model state is not valid, the controller returns the Create view with an
+error message.
+
+Linq:
+Language-Integrated Query (LINQ) is a set of features in C# that enable developers to write queries
+directly within the C# language. LINQ provides a unified syntax for querying and manipulating data from
+different data sources, such as collections, databases, and XML, and it supports a variety of operations
+like filtering, sorting, grouping, and joining data. LINQ is commonly used in ASP.NET applications to
+query and manipulate data from databases and other sources.
+
+LINQ Query Syntax:
+LINQ query syntax is a declarative syntax for writing queries in C# using the LINQ features. It provides
+a familiar and expressive syntax for querying and manipulating data, and it supports a variety of
+operations like filtering, sorting, grouping, and joining data. LINQ query syntax is commonly used in
+ASP.NET applications to write queries that retrieve and process data from databases and other sources.
+Example:
+var query = from p in products
+			where p.Price > 100
+			select p;
+In this example, the LINQ query syntax is used to retrieve products with a price greater than 100 from
+the products collection.
+
+
+IQueryable:
+IQueryable is an interface in .NET that represents a queryable data source. It provides a set of methods
+for querying and manipulating data, and it supports a variety of operations like filtering, sorting,
+grouping, and joining data. IQueryable is commonly used in LINQ queries to retrieve and process data
+from databases and other sources, and it enables developers to write expressive and efficient queries
+that are executed on the server.
+
+Git Commands:
+1. git init: Initialize a new Git repository in the current directory.
+2. git clone <url>: Clone a remote Git repository to the local machine.
+3. git add <file>: Add a file to the staging area for the next commit.
+4. git commit -m "message": Commit the staged changes with a descriptive message.
+5. git push: Push the committed changes to a remote repository.
+6. git pull: Fetch and merge changes from a remote repository to the local repository.
+7. git branch: List all branches in the local repository.
+8. git checkout <branch>: Switch to a different branch in the local repository.
+9. git merge <branch>: Merge changes from a different branch into the current branch.
+10. git status: Show the current status of the working directory and staging area.
+11. git log: Show a history of commits in the repository.
+12. git reset --hard: Reset the working directory and staging area to the last commit.
+
+Git:
+Git is a distributed version control system that enables developers to track changes to their code,
+collaborate with others, and manage different versions of their projects. It provides a set of commands
+and workflows for managing code repositories, branching, merging, and more, and it is commonly used in
+software development to track and manage changes to code.
+
+Bootstrap Grid System:
+The Bootstrap grid system is a responsive, mobile-first grid system that enables developers to create
+flexible and responsive layouts for web pages. It is based on a 12-column grid layout, and it provides
+classes for defining the layout and alignment of content across different screen sizes, from extra small
+to extra large. The Bootstrap grid system is commonly used in web development to create responsive and
+mobile-friendly designs.
+
